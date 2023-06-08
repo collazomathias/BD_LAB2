@@ -1,6 +1,6 @@
 <div class="container-sidebar">
     <div class="container-logo">
-        <img width="60px" class="logo" src="assets/images/logo.png" alt="logo">
+        <img class="logo" src="assets/images/logo.png" alt="logo">
     </div>
     <div class="container-menu">
         <a href="?page=home" class="<?php echo $page == 'home' ? 'active' : '' ?> menu-item">
@@ -12,7 +12,7 @@
             <p class="nav-item-name">Movies</p>
         </a>
         <a href="?page=actors/actors" class="<?php echo $page == 'actors' ? 'active' : '' ?> menu-item">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-circle"></i>
             <p class="nav-item-name">Actors</p>
         </a>
     </div>

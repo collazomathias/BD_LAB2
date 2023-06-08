@@ -44,9 +44,9 @@
                                         <td><?php echo $description ?></td>
                                         <td><?php echo $year ?></td>
                                         <td>
-                                            <button class="movie-view" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-eye"></i></button>
-                                            <button class="movie-edit" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-edit"></i></button>
-                                            <button val="<?php echo $id ?>" class="movie-trash"><i class="fas fa-trash"></i></button>
+                                            <button title="View movie details" class="movie-view" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-eye"></i></button>
+                                            <button title="Edit movie" class="movie-edit" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-edit"></i></button>
+                                            <button title="Delete movie" val="<?php echo $id ?>" class="movie-trash"><i class="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 <?php } ?>

@@ -38,6 +38,10 @@ body {
     z-index: 10000;
 }
 
+.container-sidebar .active {
+    background-color: var(--secondary-color);
+}
+
 .container-sidebar:hover {
     width: 250px;
     padding-right: 20px;
@@ -83,8 +87,8 @@ body {
     padding: 17px;
     color: var(--primary-font-color);
     font-family: var(--font-family);
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    margin-bottom: 10px;
+    transition: 0.1s ease-in-out;
 }
 
 .container-sidebar .container-menu a:hover {
@@ -109,6 +113,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container-sidebar:hover .menu-item {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 /* SIDEBAR END */

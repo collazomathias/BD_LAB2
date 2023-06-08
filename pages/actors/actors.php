@@ -40,7 +40,7 @@
                                         <td class="hidden"><?php echo $id ?></td>
                                         <td><?php echo $nombre ?></td>
                                         <td><?php echo $apellido ?></td>
-                                        <td><button class="edit" val="<?php echo $id.'-'.$nombre.'-'.$apellido ?>"><i class="fas fa-edit"></i></button><button class="trash"><i class="fas fa-trash"></i></button></td>
+                                        <td><button class="edit" val="<?php echo $id.'-'.$nombre.'-'.$apellido ?>"><i class="fas fa-edit"></i></button><button val="<?php echo $id ?>" class="trash"><i class="fas fa-trash"></i></button></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

@@ -7,11 +7,11 @@
             <i class="fas fa-home"></i>
             <p class="nav-item-name">Home</p>
         </a>
-        <a href="?page=movies/movies" class="<?php echo $page == 'movies' ? 'active' : '' ?> menu-item">
+        <a href="?page=movies/movies" class="<?php echo $page == 'movies/movies' ? 'active' : '' ?> menu-item">
             <i class="fas fa-film"></i>
             <p class="nav-item-name">Movies</p>
         </a>
-        <a href="?page=actors/actors" class="<?php echo $page == 'actors' ? 'active' : '' ?> menu-item">
+        <a href="?page=actors/actors" class="<?php echo $page == 'actors/actors' ? 'active' : '' ?> menu-item">
             <i class="fas fa-user-circle"></i>
             <p class="nav-item-name">Actors</p>
         </a>

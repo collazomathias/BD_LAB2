@@ -19,4 +19,11 @@ $(document).ready(function(){
         document.getElementById("create-update-button").value = "Create";
         document.getElementById("actor-form").action = "pages/actors/create_actor.php";
     });
+
+    $('.trash').click(function(){
+        var id = $(this).attr("val");
+        document.getElementById("input-id").value = id;
+        document.getElementById("actor-form").action = "pages/actors/delete_actor.php";
+        document.getElementById("actor-form").submit();
+    });
 });

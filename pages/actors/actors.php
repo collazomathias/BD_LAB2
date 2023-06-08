@@ -6,8 +6,8 @@
     $total_query_result = mysqli_query($connection, $total_select_query);
     $per_page = 30;
     $start = ($currentPage - 1) * $per_page;
-    $select_query = "SELECT * FROM actores LIMIT $start,$per_page";
-    $query_result = mysqli_query($connection, $select_query);
+    $limited_select_query = "SELECT * FROM actores LIMIT $start,$per_page";
+    $query_result = mysqli_query($connection, $limited_select_query);
     $count = mysqli_num_rows($total_query_result);
     $pages = ceil($count / $per_page);
 ?>
@@ -67,18 +67,26 @@
             </div>
         </div>
         <div class="form-container">
-            <h1>ACTOR MANAGEMENT</h1>
-            <div class="actor-information-container">
-                <label for="input-id">ID</label>
-                <input type="text" id="input-id" disabled>
-                <label for="input-name">Name</label>
-                <input type="text" id="input-name">
-                <label for="input-lastname">Lastname</label>
-                <input type="text" id="input-lastname">
-            </div>
+            <form id="actor-form" action="pages/actors/create_actor.php" method="POST">
+                <p>ACTOR MANAGEMENT</p>
+                <div class="actor-information-container">
+                    <input type="text" id="input-id" name="id" class="hidden">
+                    <label for="input-name">Name</label>
+                    <input type="text" id="input-name" name="name">
+                    <label for="input-lastname">Lastname</label>
+                    <input type="text" id="input-lastname" name="lastname">
+                    <div class="form-buttons-container">
+                        <div id="clear-form-container" class="hidden"><i id="clear-form" class="fas fa-eraser"></i>Reset</div>
+                        <input id="create-update-button" type="submit" value="Create" class="submit-button update-button">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<?php isset($_GET['modal-success']) ? require 'components/modal_success.php' : '' ?> 
+<?php isset($_GET['modal-failed']) ? require 'components/modal_failed.php' : '' ?> 
 
 <style>
     <?php require 'assets/styles/style.css' // Esto se hace para importar estilos css en un archivo php ?>

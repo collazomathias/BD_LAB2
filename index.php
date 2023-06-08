@@ -12,10 +12,9 @@
 </head>
 <body>
     <?php
-        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+        $page = isset($_GET['page']) ? $_GET['page'] : 'movies/movies';
         require_once 'components/header.php';
         require_once 'pages/'.$page.'.php'; //Esto hace que lo que esté entre el header y el footer sea dinámico
-        //require_once 'components/footer.php'; 
     ?>
 </body>
 </html>

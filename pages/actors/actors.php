@@ -18,11 +18,11 @@
     </div>
     <div class="actors-container">
         <div class="container">
-            <div class="table-container">
+            <div class="actors-table-container">
                 <table>
                     <?php if($query_result) { ?>
                             <thead class="sticky">
-                                <th class="hidden">ID</th>
+                                <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th></th>
@@ -37,7 +37,7 @@
                                     $counter++;
                                 ?>
                                     <tr class="<?php echo ($counter == $per_page) ? 'last-item' : 'item' ?>">
-                                        <td class="hidden"><?php echo $id ?></td>
+                                        <td><?php echo $id ?></td>
                                         <td><?php echo $nombre ?></td>
                                         <td><?php echo $apellido ?></td>
                                         <td><button class="edit" val="<?php echo $id.'-'.$nombre.'-'.$apellido ?>"><i class="fas fa-edit"></i></button><button val="<?php echo $id ?>" class="trash"><i class="fas fa-trash"></i></button></td>
@@ -45,7 +45,7 @@
                                 <?php } ?>
                             </tbody>
                         <?php } 
-                        else echo 'No hay resultados para mostrar.';
+                        else echo 'There are no results to show.';
                     ?>
                 </table>
             </div>

@@ -177,12 +177,20 @@ table {
     gap: 20px;
 }
 
+.movies-container {
+    width: calc(100%);
+    height: calc(100%);
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
 .container {
     width: 70%;
     height: calc(100% - 40px);
 }
 
-.container .table-container {
+.container .actors-table-container {
     width: 100%;
     height: calc(100%);
     overflow-y: scroll;
@@ -191,7 +199,16 @@ table {
     border-right: 1px solid var(--third-color);
 }
 
-.container .table-container table .sticky {
+.container .movies-table-container {
+    width: 100%;
+    height: calc(100%);
+    overflow-y: scroll;
+    border-top: 1px solid var(--third-color);
+    border-left: 1px solid var(--third-color);
+    border-right: 1px solid var(--third-color);
+}
+
+.container .actors-table-container table .sticky {
     height: 50px;
     position: sticky;
     top: 0;
@@ -202,12 +219,34 @@ table {
     text-transform: uppercase;
 }
 
-.container .table-container table {
+.container .movies-table-container table .sticky {
+    height: 50px;
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-color);
+    color: var(--primary-font-color);
+    font-family: var(--font-family);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.container .actors-table-container table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.container .table-container table tr {
+.container .movies-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container .actors-table-container table tr {
+    border-bottom: 1px solid lightgray;
+    height: 40px;
+    font-family: var(--font-family);
+}
+
+.container .movies-table-container table tr {
     border-bottom: 1px solid lightgray;
     height: 40px;
     font-family: var(--font-family);
@@ -225,59 +264,132 @@ table {
     font-weight: bold;
 }
 
-.container .table-container table th:nth-child(1) {
-    width: 50px;
+.container .actors-table-container table th:nth-child(1) {
+    width: 6%;
     padding: 5px;
-    text-align: center;
+    padding-left: 10px;
+    text-align: left;
 }
 
-.container .table-container table tr td:nth-child(1) {
-    width: 50px;
+.container .actors-table-container table tr td:nth-child(1) {
+    width: 6%;
     padding: 5px;
-    text-align: center;
+    padding-left: 10px;
+    text-align: left;
 }
 
-.container .table-container table th:nth-child(2) {
+.container .movies-table-container table th:nth-child(1) {
+    width: 5%;
+    padding: 5px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.container .movies-table-container table tr td:nth-child(1) {
+    width: 5%;
+    padding: 5px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.container .actors-table-container table th:nth-child(2) {
     width: 50%;
     padding: 5px;
     text-align: left;
 }
 
-.container .table-container table tr td:nth-child(2) {
+.container .actors-table-container table tr td:nth-child(2) {
     width: 50%;
     padding: 5px;
     text-align: left;
 }
 
-.container .table-container table th:nth-child(3) {
+.container .movies-table-container table th:nth-child(2) {
+    width: 25%;
+    padding: 5px;
+    text-align: left;
+}
+
+.container .movies-table-container table tr td:nth-child(2) {
+    width: 25%;
+    padding: 5px;
+    text-align: left;
+}
+
+.container .actors-table-container table th:nth-child(3) {
     width: 50%;
     padding: 5px;
     text-align: left;
 }
 
-.container .table-container table tr td:nth-child(3) {
+.container .actors-table-container table tr td:nth-child(3) {
     width: 50%;
     padding: 5px;
     text-align: left;
 }
 
-.container .table-container table th:nth-child(4) {
+.container .movies-table-container table th:nth-child(3) {
+    width: 75%;
+    padding: 5px;
+    text-align: left;
+}
+
+.container .movies-table-container table tr td:nth-child(3) {
+    width: 75%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.container .actors-table-container table th:nth-child(4) {
     width: 100px;
     padding: 5px;
 }
 
-.container .table-container table tr td:nth-child(4) {
+.container .actors-table-container table tr td:nth-child(4) {
     width: 100px;
     padding: 5px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-right: 20px;
+    margin-right: 10px;
     gap: 10px;
 }
 
-.container .table-container table tr td button {
+.container .movies-table-container table th:nth-child(4) {
+    width: 10%;
+    padding: 5px;
+    text-align: left;
+}
+
+.container .movies-table-container table tr td:nth-child(4) {
+    width: 10%;
+    padding: 5px;
+    text-align: left;
+}
+
+.container .movies-table-container table th:nth-child(5) {
+    width: 150px;
+    padding: 5px;
+}
+
+.container .movies-table-container table tr td:nth-child(5) {
+    width: 150px;
+    padding: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+.container .actors-table-container table tr td button {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -287,15 +399,42 @@ table {
     transition: 0.1s ease-in-out;
 }
 
-.container .table-container table tr td button.edit:hover {
+.container .movies-table-container table tr td button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: var(--third-color);
+    transition: 0.1s ease-in-out;
+}
+
+.container .movies-table-container table tr td button.movie-view:hover {
+    background-color: green;
+}
+
+.container .actors-table-container table tr td button.edit:hover {
     background-color: var(--primary-color);
 }
 
-.container .table-container table tr td button.trash:hover {
+.container .movies-table-container table tr td button.movie-edit:hover {
+    background-color: var(--primary-color);
+}
+
+.container .actors-table-container table tr td button.trash:hover {
     background-color: var(--fourth-color);
 }
 
-.container .table-container table tr td i {
+.container .movies-table-container table tr td button.movie-trash:hover {
+    background-color: var(--fourth-color);
+}
+
+.container .actors-table-container table tr td i {
+    font-size: 15px;
+    color: var(--primary-font-color);
+}
+
+.container .movies-table-container table tr td i {
     font-size: 15px;
     color: var(--primary-font-color);
 }
@@ -363,7 +502,23 @@ table {
     border-bottom-right-radius: 4px;
 }
 
+.form-container .movie-information-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--third-color);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
 .form-container .actor-information-container label {
+    font-family: var(--font-family);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.form-container .movie-information-container label {
     font-family: var(--font-family);
     margin-bottom: 5px;
     text-transform: uppercase;
@@ -380,12 +535,36 @@ table {
     border: 1px solid var(--third-color);
 }
 
+.form-container .movie-information-container input {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 20px;
+    font-family: var(--font-family);
+    border-radius: 4px;
+    border: 1px solid var(--third-color);
+}
+
 .form-container .actor-information-container input:focus {
     border: 1px solid var(--primary-color);
     outline: none;
 }
 
+.form-container .movie-information-container input:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
 .form-container .actor-information-container input[type=submit] {
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: 0.1s ease-in-out;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+}
+
+.form-container .movie-information-container input[type=submit] {
     cursor: pointer;
     margin-bottom: 0;
     transition: 0.1s ease-in-out;
@@ -419,13 +598,43 @@ table {
     gap: 10px;
 }
 
+#movie-clear-form-container {
+    width: 50%;
+    height: 45px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    border: 1px solid var(--third-color);
+    background-color: buttonface;
+    color: buttontext;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 20px;
+    gap: 10px;
+}
+
 .form-container .actor-information-container input[type=submit]:hover {
     filter: brightness(1.1);
     background-color: green;
     color: var(--primary-font-color);
 }
 
+.form-container .movie-information-container input[type=submit]:hover {
+    filter: brightness(1.1);
+    background-color: green;
+    color: var(--primary-font-color);
+}
+
 #clear-form-container:hover {
+    filter: brightness(1.1);
+    background-color: red;
+    color: var(--primary-font-color);
+}
+
+#movie-clear-form-container:hover {
     filter: brightness(1.1);
     background-color: red;
     color: var(--primary-font-color);

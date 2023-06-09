@@ -53,12 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie-title']) && $_PO
 
         $create_query = "INSERT INTO peliculas (titulo, descripcion, anio, idIdiomaOriginal, costoAlquiler, duracion, costoReemplazo, clasificacion, contenidosExtra) VALUES ('$titulo', '$descripcion', '$anio', '$lenguage', '$costoAlquiler', '$duracion', '$costoReemplazo', '$clasificacion', '$contenidosExtra')";
         $query_result = mysqli_query($connection, $create_query);
-        echo ($query_result) ? '<script>window.location="/?page=actors/actors&modal-success=1&action=create&type=movie";</script>' : '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
+        echo ($query_result) ? '<script>window.location="/?page=movies/movies&modal-success=1&action=create&type=movie";</script>' : '<script>window.location="/?page=movies/movies&modal-failed=1&action=create&type=movie";</script>';
     } else {
-        echo '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
+        echo '<script>window.location="/?page=movies/movies&modal-failed=1&action=create&type=movie";</script>';
     }
 } else {
-    echo '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
+    echo '<script>window.location="/?page=movies/movies&modal-failed=1&action=create&type=movie";</script>';
 }
 
 ?>

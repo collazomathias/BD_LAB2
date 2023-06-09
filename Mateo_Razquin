@@ -1,0 +1,21 @@
+//Archivo: create_movie.php | Esta consulta agrega la nueva pelicula a la base de datos
+...
+require '../../connection_manager.php';
+$connection = connect();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //Nose si esto esta bien asi
+    $titulo = $_POST['movie-title'];
+    $descripcion = $_POST['movie-description'];
+    $anio = $_POST['movie-year'];
+    $costoAlquiler = $_POST['movie-rental-cost'];
+    $duracion = $_POST['movie-duration'];
+    $costoReemplazo = $_POST['movie-replacement-cost'];
+    $clasificacion = $_POST['movie-clasification'];
+    $contenidosExtra = $_POST['movie-extra-content'];
+    $create_query = "INSERT INTO peliculas (titulo, descripcion, anio, costoAlquiler, duracion, costoReemplazo, clasificacion, contenidosExtra) VALUES ('$titulo', '$descripcion', '$anio', '$costoAlquiler', '$duracion', '$costoReemplazo', '$clasificacion', '$contenidosExtra')";
+    $query_result = mysqli_query($connection, $create_query);
+    echo ($query_result) ? '<script>window.location="/?page=actors/actors&modal-success=1&action=create&type=actor";</script>' : '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=actor";</script>';    
+} else {
+    echo '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=actor";</script>';
+}
+...

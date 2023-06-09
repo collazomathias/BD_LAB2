@@ -3,7 +3,16 @@
 require '../../connection_manager.php';
 $connection = connect();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { //Nose si esto esta bien asi
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie-title']) && $_POST['movie-title'] != "" 
+&& isset($_POST['movie-description']) && $_POST['movie-description'] != "" 
+&& isset($_POST['movie-year']) && $_POST['movie-year'] != "" 
+&& isset($_POST['movie-rental-cost']) && $_POST['movie-rental-cost'] != "" 
+&& isset($_POST['movie-duration']) && $_POST['movie-duration'] != "" 
+&& isset($_POST['movie-rental-cost']) && $_POST['movie-rental-cost'] != "" 
+&& isset($_POST['movie-duration']) && $_POST['movie-duration'] != "" 
+&& isset($_POST['movie-replacement-cost']) && $_POST['movie-replacement-cost'] != "" 
+&& isset($_POST['movie-clasification']) && $_POST['movie-clasification'] != "" 
+&& isset($_POST['movie-extra-content']) && $_POST['movie-extra-content'] != "") { 
     $titulo = $_POST['movie-title'];
     $descripcion = $_POST['movie-description'];
     $anio = $_POST['movie-year'];

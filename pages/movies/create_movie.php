@@ -22,7 +22,6 @@ echo isset($_POST['movie-clasification']) ? $_POST['movie-clasification'].'<br>'
 echo 'Extra content: ';
 echo isset($_POST['movie-extra-content']) ? $_POST['movie-extra-content'].'<br>' : '<br>';
 
-//TODO: Hay que ver como es el tema de los idiomas y todos los controles de los campos.
 require '../../connection_manager.php';
 $connection = connect();
 
@@ -46,14 +45,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie-title']) && $_PO
     $costoReemplazo = $_POST['movie-replacement-cost'];
     $clasificacion = $_POST['movie-clasification'];
     $contenidosExtra = $_POST['movie-extra-content'];
-    $create_query = "INSERT INTO peliculas (titulo, descripcion, anio, idIdiomaOriginal, costoAlquiler, duracion, costoReemplazo, clasificacion, contenidosExtra) VALUES ('$titulo', '$descripcion', '$anio', '$lenguage', '$costoAlquiler', '$duracion', '$costoReemplazo', '$clasificacion', '$contenidosExtra')";
-    $query_result = mysqli_query($connection, $create_query);
-}
 
-if ($query_result) {
-    echo "La película se agregó correctamente a la base de datos.";
+    if (filter_var($anio, FILTER_VALIDATE_INT) !== false 
+        && filter_var($duracion, FILTER_VALIDATE_INT) !== false
+        && filter_var($costoAlquiler, FILTER_VALIDATE_FLOAT) !== false 
+        && filter_var($costoReemplazo, FILTER_VALIDATE_FLOAT) !== false) {
+
+        $create_query = "INSERT INTO peliculas (titulo, descripcion, anio, idIdiomaOriginal, costoAlquiler, duracion, costoReemplazo, clasificacion, contenidosExtra) VALUES ('$titulo', '$descripcion', '$anio', '$lenguage', '$costoAlquiler', '$duracion', '$costoReemplazo', '$clasificacion', '$contenidosExtra')";
+        $query_result = mysqli_query($connection, $create_query);
+        echo ($query_result) ? '<script>window.location="/?page=actors/actors&modal-success=1&action=create&type=movie";</script>' : '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
+    } else {
+        echo '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
+    }
 } else {
-    echo "Error al agregar la película: " . mysqli_error($connection);
+    echo '<script>window.location="/?page=actors/actors&modal-failed=1&action=create&type=movie";</script>';
 }
 
 ?>

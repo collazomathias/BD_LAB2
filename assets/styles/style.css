@@ -526,10 +526,10 @@ table {
 
 .form-container .actor-information-container input {
     width: 100%;
-    height: 45px;
+    height: 35px;
     margin-bottom: 20px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: var(--font-family);
     border-radius: 4px;
     border: 1px solid var(--third-color);
@@ -537,10 +537,22 @@ table {
 
 .form-container .movie-information-container input {
     width: 100%;
-    height: 45px;
+    height: 35px;
     margin-bottom: 20px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 16px;
+    font-family: var(--font-family);
+    border-radius: 4px;
+    border: 1px solid var(--third-color);
+}
+
+.form-container .movie-information-container textarea {
+    width: 100%;
+    height: 75px;
+    resize: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
     font-family: var(--font-family);
     border-radius: 4px;
     border: 1px solid var(--third-color);
@@ -582,7 +594,7 @@ table {
 
 #clear-form-container {
     width: 50%;
-    height: 45px;
+    height: 35px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -594,13 +606,13 @@ table {
     color: buttontext;
     text-transform: uppercase;
     font-family: var(--font-family);
-    font-size: 20px;
+    font-size: 16px;
     gap: 10px;
 }
 
 #movie-clear-form-container {
     width: 50%;
-    height: 45px;
+    height: 35px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -612,7 +624,7 @@ table {
     color: buttontext;
     text-transform: uppercase;
     font-family: var(--font-family);
-    font-size: 20px;
+    font-size: 16px;
     gap: 10px;
 }
 

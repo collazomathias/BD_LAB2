@@ -1,6 +1,6 @@
 <?php 
 
-echo 'MOVIE DETAILS<br><br>';
+echo 'CREATE MOVIE<br><br>';
 echo 'ID: ';
 echo isset($_POST['movie-id']) ? $_POST['movie-id'].'<br>' : '<br>';
 echo 'Language: ';

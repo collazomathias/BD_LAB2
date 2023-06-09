@@ -33,9 +33,15 @@
                                 $counter = 0;
                                 while($row = $query_result->fetch_assoc()) {
                                     $id = $row['idPelicula'];
+                                    $language = $row['idIdiomaOriginal'];
                                     $title = $row['titulo'];
                                     $description = $row['descripcion'];
                                     $year = $row['anio'];
+                                    $rental_cost = $row['costoAlquiler'];
+                                    $duration = $row['duracion'];
+                                    $replacement_cost = $row['costoReemplazo'];
+                                    $clasification = $row['clasificacion'];
+                                    $extra_content = $row['contenidosExtra'];
                                     $counter++;
                                 ?>
                                     <tr class="<?php echo ($counter == $per_page) ? 'last-item' : 'item' ?>">
@@ -44,8 +50,8 @@
                                         <td><?php echo $description ?></td>
                                         <td><?php echo $year ?></td>
                                         <td>
-                                            <button title="View movie details" class="movie-view" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-eye"></i></button>
-                                            <button title="Edit movie" class="movie-edit" val="<?php echo $id.'-'.$title.'-'.$description.'-'.$year ?>"><i class="fas fa-edit"></i></button>
+                                            <button title="View movie details" class="movie-view" val="<?php echo $id.'|'.$language.'|'.$title.'|'.$description.'|'.$year.'|'.$rental_cost.'|'.$duration.'|'.$replacement_cost.'|'.$clasification.'|'.$extra_content ?>"><i class="fas fa-eye"></i></button>
+                                            <button title="Edit movie" class="movie-edit" val="<?php echo $id.'|'.$language.'|'.$title.'|'.$description.'|'.$year.'|'.$rental_cost.'|'.$duration.'|'.$replacement_cost.'|'.$clasification.'|'.$extra_content ?>"><i class="fas fa-edit"></i></button>
                                             <button title="Delete movie" val="<?php echo $id ?>" class="movie-trash"><i class="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -77,13 +83,24 @@
             <form id="movie-form" action="pages/movies/create_movie.php" method="POST">
                 <p>MOVIE MANAGEMENT</p>
                 <div class="movie-information-container">
-                    <input type="text" id="input-movie-id" name="id" class="hidden">
+                    <input type="text" id="input-movie-id" name="movie-id" class="hidden">
+                    <input type="text" id="input-movie-language" name="movie-language" class="hidden">
                     <label for="input-movie-title">Title</label>
                     <input type="text" id="input-movie-title" name="movie-title">
                     <label for="input-lastname">Description</label>
-                    <input type="text" id="input-movie-description" name="movie-description">
+                    <textarea id="text-area-movie-description" name="movie-description"></textarea>
                     <label for="input-lastname">Year</label>
                     <input type="text" id="input-movie-year" name="movie-year">
+                    <label for="input-lastname">Rental cost</label>
+                    <input type="text" id="input-movie-rental-cost" name="movie-rental-cost">
+                    <label for="input-lastname">Duration</label>
+                    <input type="text" id="input-movie-duration" name="movie-duration">
+                    <label for="input-lastname">Replacement cost</label>
+                    <input type="text" id="input-movie-replacement-cost" name="movie-replacement-cost">
+                    <label for="input-lastname">Clasification</label>
+                    <input type="text" id="input-movie-clasification" name="movie-clasification">
+                    <label for="input-lastname">Extra content</label>
+                    <input type="text" id="input-movie-extra-content" name="movie-extra-content">
                     <div class="form-buttons-container">
                         <div id="movie-clear-form-container" class="hidden"><i id="clear-form" class="fas fa-eraser"></i>Reset</div>
                         <input id="movie-create-update-button" type="submit" value="Create" class="submit-button update-button">

@@ -30,7 +30,7 @@
                             <tbody>
                                 <?php
                                 $counter = 0;
-                                while($row = $query_result->fetch_assoc()) {
+                                foreach($query_result as $row) {
                                     $id = $row['idActor'];
                                     $nombre = $row['nombre'];
                                     $apellido = $row['apellido'];

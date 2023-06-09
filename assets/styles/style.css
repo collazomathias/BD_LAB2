@@ -106,7 +106,7 @@ body {
 }
 
 .container-sidebar .container-menu a p {
-    font-size: 14px;
+    font-size: 16px !important;
     text-transform: uppercase;
     padding: 0;
     margin: 0 0 0 20px;
@@ -233,23 +233,27 @@ table {
 .container .actors-table-container table {
     width: 100%;
     border-collapse: collapse;
+    text-transform: uppercase;
 }
 
 .container .movies-table-container table {
     width: 100%;
     border-collapse: collapse;
+    text-transform: uppercase;
 }
 
 .container .actors-table-container table tr {
     border-bottom: 1px solid lightgray;
     height: 40px;
     font-family: var(--font-family);
+    font-size: 14px;
 }
 
 .container .movies-table-container table tr {
     border-bottom: 1px solid lightgray;
     height: 40px;
     font-family: var(--font-family);
+    font-size: 14px;
 }
 
 .last-item {
@@ -491,6 +495,7 @@ table {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .form-container .actor-information-container {
@@ -501,6 +506,7 @@ table {
     border: 1px solid var(--third-color);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    font-size: 14px;
 }
 
 .form-container .movie-information-container {
@@ -511,6 +517,7 @@ table {
     border: 1px solid var(--third-color);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    font-size: 14px;
 }
 
 .form-container .actor-information-container label {
@@ -528,18 +535,18 @@ table {
     height: 35px;
     margin-bottom: 20px;
     padding-left: 10px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: var(--font-family);
     border-radius: 4px;
     border: 1px solid var(--third-color);
 }
 
-.form-container .movie-information-container input {
+.form-container .movie-information-container input, .form-container .movie-information-container select {
     width: 100%;
     height: 35px;
     margin-bottom: 20px;
     padding-left: 10px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: var(--font-family);
     border-radius: 4px;
     border: 1px solid var(--third-color);
@@ -551,7 +558,7 @@ table {
     resize: none;
     margin-bottom: 20px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: var(--font-family);
     border-radius: 4px;
     border: 1px solid var(--third-color);
@@ -605,7 +612,7 @@ table {
     color: buttontext;
     text-transform: uppercase;
     font-family: var(--font-family);
-    font-size: 16px;
+    font-size: 16px !important;
     gap: 10px;
 }
 
@@ -623,7 +630,7 @@ table {
     color: buttontext;
     text-transform: uppercase;
     font-family: var(--font-family);
-    font-size: 16px;
+    font-size: 16px !important;
     gap: 10px;
 }
 
@@ -654,7 +661,7 @@ table {
 .movie-input-container {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .three-columns {
@@ -721,7 +728,7 @@ table {
     align-items: center;
     justify-content: center;
     font-family: var(--font-family);
-    font-size: 16px;
+    font-size: 16px !important;
     margin-bottom: 20px;
 }
 

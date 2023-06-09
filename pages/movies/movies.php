@@ -10,6 +10,8 @@
     $query_result = mysqli_query($connection, $limited_select_query);
     $count = mysqli_num_rows($total_query_result);
     $pages = ceil($count / $per_page);
+    $query_languages = "SELECT * from idiomas";
+    $query_languages_result = mysqli_query($connection, $query_languages);
 ?>
 
 <div class="page-container">
@@ -31,7 +33,7 @@
                             <tbody>
                                 <?php
                                 $counter = 0;
-                                while($row = $query_result->fetch_assoc()) {
+                                foreach($query_result as $row) {
                                     $id = $row['idPelicula'];
                                     $language = $row['idIdiomaOriginal'];
                                     $title = $row['titulo'];
@@ -104,13 +106,21 @@
                         </div>
                     </div>
                     <div class="movie-input-container">
-                        <div class="movie-label-input two-columns">
+                        <div class="movie-label-input three-columns">
                             <label for="input-lastname">Rental cost</label>
                             <input type="text" id="input-movie-rental-cost" name="movie-rental-cost">
                         </div>
                         <div class="movie-label-input two-columns">
                             <label for="input-lastname">Replacement cost</label>
                             <input type="text" id="input-movie-replacement-cost" name="movie-replacement-cost">
+                        </div>
+                        <div class="movie-label-input three-columns">
+                            <label for="movie-language">Language</label>
+                            <select name="movie-language" id="movie-language">
+                                <?php foreach($query_languages_result as $language) { ?>
+                                    <option value="<?php echo $language['idIdioma'] ?>"><?php echo $language['idioma'] ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <label for="input-lastname">Extra content</label>

@@ -40,7 +40,6 @@ $(document).ready(function(){
         var extra_content = $(this).attr("val").split('|')[9];
         $("#movie-clear-form-container").removeClass("hidden");
         document.getElementById("input-movie-id").value = id;
-        document.getElementById("input-movie-language").value = language;
         document.getElementById("input-movie-title").value = title;
         document.getElementById("text-area-movie-description").value = description;
         document.getElementById("input-movie-year").value = year;
@@ -49,14 +48,15 @@ $(document).ready(function(){
         document.getElementById("input-movie-replacement-cost").value = replacement_cost;
         document.getElementById("input-movie-clasification").value = clasification;
         document.getElementById("input-movie-extra-content").value = extra_content;
+        document.getElementById("movie-language").value = language;
         document.getElementById("movie-create-update-button").value = "Update";
         document.getElementById("movie-form").action = "pages/movies/update_movie.php";
     });
 
     $('#movie-clear-form-container').click(function(){
         $("#movie-clear-form-container").addClass("hidden");
+        $("#movie-language").val($("#movie-language option:first").val());
         document.getElementById("input-movie-id").value = "";
-        document.getElementById("input-movie-language").value = "";
         document.getElementById("input-movie-title").value = "";
         document.getElementById("text-area-movie-description").value = "";
         document.getElementById("input-movie-year").value = "";

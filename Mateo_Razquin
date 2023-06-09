@@ -3,8 +3,7 @@
 require '../../connection_manager.php';
 $connection = connect();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie-lenguage']) && $_POST['movie-lenguage'] != "" 
-&& isset($_POST['movie-title']) && $_POST['movie-title'] != "" 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie-title']) && $_POST['movie-title'] != "" 
 && isset($_POST['movie-description']) && $_POST['movie-description'] != "" 
 && isset($_POST['movie-year']) && $_POST['movie-year'] != "" 
 && isset($_POST['movie-rental-cost']) && $_POST['movie-rental-cost'] != "" 

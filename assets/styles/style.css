@@ -376,6 +376,7 @@ table {
 .container .movies-table-container table th:nth-child(5) {
     width: 150px;
     padding: 5px;
+    padding-right: 20px;
 }
 
 .container .movies-table-container table tr td:nth-child(5) {
@@ -385,8 +386,8 @@ table {
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-right: 10px;
     gap: 10px;
+    padding-right: 20px;
 }
 
 .container .actors-table-container table tr td button {
@@ -514,13 +515,11 @@ table {
 
 .form-container .actor-information-container label {
     font-family: var(--font-family);
-    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
 .form-container .movie-information-container label {
     font-family: var(--font-family);
-    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
@@ -652,7 +651,21 @@ table {
     color: var(--primary-font-color);
 }
 
-/* ACTORS END */
+.movie-input-container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.three-columns {
+    width: 33.3333%;
+}
+
+.two-columns {
+    width: 50%;
+}
+
+/* ACTORS-MOVIES END */
 
 
 /* MODAL START */

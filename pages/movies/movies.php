@@ -89,16 +89,30 @@
                     <input type="text" id="input-movie-title" name="movie-title">
                     <label for="input-lastname">Description</label>
                     <textarea id="text-area-movie-description" name="movie-description"></textarea>
-                    <label for="input-lastname">Year</label>
-                    <input type="text" id="input-movie-year" name="movie-year">
-                    <label for="input-lastname">Rental cost</label>
-                    <input type="text" id="input-movie-rental-cost" name="movie-rental-cost">
-                    <label for="input-lastname">Duration</label>
-                    <input type="text" id="input-movie-duration" name="movie-duration">
-                    <label for="input-lastname">Replacement cost</label>
-                    <input type="text" id="input-movie-replacement-cost" name="movie-replacement-cost">
-                    <label for="input-lastname">Clasification</label>
-                    <input type="text" id="input-movie-clasification" name="movie-clasification">
+                    <div class="movie-input-container">
+                        <div class="movie-label-input three-columns">
+                            <label for="input-lastname">Year</label>
+                            <input type="text" id="input-movie-year" name="movie-year">
+                        </div>
+                        <div class="movie-label-input three-columns">
+                            <label for="input-lastname">Duration</label>
+                            <input type="text" id="input-movie-duration" name="movie-duration">
+                        </div>
+                        <div class="movie-label-input three-columns">
+                            <label for="input-lastname">Clasification</label>
+                            <input type="text" id="input-movie-clasification" name="movie-clasification">
+                        </div>
+                    </div>
+                    <div class="movie-input-container">
+                        <div class="movie-label-input two-columns">
+                            <label for="input-lastname">Rental cost</label>
+                            <input type="text" id="input-movie-rental-cost" name="movie-rental-cost">
+                        </div>
+                        <div class="movie-label-input two-columns">
+                            <label for="input-lastname">Replacement cost</label>
+                            <input type="text" id="input-movie-replacement-cost" name="movie-replacement-cost">
+                        </div>
+                    </div>
                     <label for="input-lastname">Extra content</label>
                     <input type="text" id="input-movie-extra-content" name="movie-extra-content">
                     <div class="form-buttons-container">

@@ -25,7 +25,3 @@ echo isset($_POST['movie-extra-content']) ? $_POST['movie-extra-content'].'<br>'
 //TODO: Hay que ver como es el tema de los idiomas y todos los controles de los campos.
 
 ?>
-
-<style>
-    <?php require 'assets/styles/style.css' // Esto se hace para importar estilos css en un archivo php ?>
-</style>

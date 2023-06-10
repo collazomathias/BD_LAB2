@@ -1,6 +1,6 @@
 <?php
 
-    require $_SERVER['DOCUMENT_ROOT'] . '/connection_manager.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/connection_manager.php';
     $connection = connect();
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-    require $_SERVER['DOCUMENT_ROOT'] . '/connection_manager.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/connection_manager.php';
     $connection = connect();
 
 ?>
@@ -41,7 +41,7 @@
 <?php 
     isset($_GET['modal-success']) ? require 'components/modal_success.php' : '';
     isset($_GET['modal-failed']) ? require 'components/modal_failed.php' : '';
-    disconnect($connection);
+    if(isset($connection)) disconnect($connection);
 ?>
 
 <style>

@@ -8,6 +8,6 @@
         <?php } elseif($_GET['action'] == "delete") { ?>
             <p class="modal-description">Failed to delete <?php echo $_GET['type'] == "actor" ? "an actor" : "a movie" ?>.</h1>
         <?php } ?>
-        <button class="modal-button" onclick="window.location='/?page=<?php echo $_GET['type'] == 'actor' ? 'actors/actors' : 'movies/movies' ?>'"><i class="fas fa-times"></i></button>
+        <button class="modal-button"><i class="fas fa-times"></i></button>
     </div>
 </div>

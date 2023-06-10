@@ -13,8 +13,13 @@
 <body>
     <?php
         $page = isset($_GET['page']) ? $_GET['page'] : 'movies/movies';
+        (isset($_GET['loader']) && $_GET['loader'] == 'none') ? null : require_once 'components/loader.php';
         require_once 'components/header.php';
         require_once 'pages/'.$page.'.php'; //Esto hace que lo que esté entre el header y el footer sea dinámico
     ?>
 </body>
 </html>
+
+<style>
+    <?php require 'assets/styles/style.css' // Esto se hace para importar estilos css en un archivo php ?>
+</style>

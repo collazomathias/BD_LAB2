@@ -6,7 +6,11 @@
     $currentPage = (isset($_GET['pagenumber'])) ? (int)$_GET['pagenumber'] : 1;
     $per_page = 30;
     $start = ($currentPage - 1) * $per_page;
-    $limited_select_query = "SELECT * FROM actores LIMIT $start, $per_page";
+    if(isset($_GET['search']) && $_GET['search'] != '') {
+        $limited_select_query = filter_var($_GET['search'], FILTER_VALIDATE_INT) ? "SELECT * FROM actores WHERE idActor = ".$_GET['search']." LIMIT ".$start.", ".$per_page.";" : "SELECT * FROM actores WHERE nombre LIKE '%".$_GET['search']."%' OR apellido LIKE '%".$_GET['search']."%' LIMIT ".$start.", ".$per_page.";";
+    } else {
+        $limited_select_query = "SELECT * FROM actores LIMIT $start, $per_page";
+    }
     $query_result = mysqli_query(isset($connection) ? $connection : $conn, $limited_select_query);
 
     if ($query_result) {
@@ -17,7 +21,16 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Lastname</th>
-                <th></th>
+                <th> 
+                    <div class="search-container">
+                        <input type="text" id="input-search" placeholder="Search..." name="search">
+                        <?php echo (isset($_GET['search']) && $_GET['search'] != '') ? 
+                        '<i id="cancel-search-actor-button" class="fas fa-times"></i>'
+                        : 
+                        '<i id="search-actor-button" class="fas fa-search"></i>'  
+                        ?>
+                    </div>
+                </th>
             </thead>
             <tbody>
                 <?php

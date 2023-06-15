@@ -4,14 +4,14 @@
     if(!isset($connection)) $conn = connect();
     
     $currentPage = (isset($_GET['pagenumber'])) ? (int)$_GET['pagenumber'] : 1;
-    $total_select_query = "SELECT * FROM peliculas";
-    $total_query_result = mysqli_query(isset($connection) ? $connection : $conn, $total_select_query);
     $per_page = 30;
     $start = ($currentPage - 1) * $per_page;
-    $limited_select_query = "SELECT * FROM peliculas LIMIT $start,$per_page";
+    if(isset($_GET['search']) && $_GET['search'] != '') {
+        $limited_select_query = filter_var($_GET['search'], FILTER_VALIDATE_INT) ? "SELECT * FROM peliculas WHERE idPelicula = ".$_GET['search']." LIMIT ".$start.", ".$per_page.";" : "SELECT * FROM peliculas WHERE titulo LIKE '%".$_GET['search']."%' OR descripcion LIKE '%".$_GET['search']."%' OR anio LIKE '%".$_GET['search']."%' LIMIT ".$start.", ".$per_page.";";
+    } else {
+        $limited_select_query = "SELECT * FROM peliculas LIMIT $start,$per_page";
+    }
     $query_result = mysqli_query(isset($connection) ? $connection : $conn, $limited_select_query);
-    $count = mysqli_num_rows($total_query_result);
-    $pages = ceil($count / $per_page);
     $query_languages = "SELECT * from idiomas";
     $query_languages_result = mysqli_query(isset($connection) ? $connection : $conn, $query_languages);
 
@@ -24,7 +24,16 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Year</th>
-                <th></th>
+                <th>
+                    <div class="search-container">
+                        <input type="text" id="input-search" placeholder="Search..." name="search">
+                        <?php echo (isset($_GET['search']) && $_GET['search'] != '') ? 
+                        '<i id="cancel-search-movie-button" class="fas fa-times"></i>'
+                        : 
+                        '<i id="search-movie-button" class="fas fa-search"></i>'  
+                        ?>
+                    </div>
+                </th>
             </thead>
             <tbody>
                 <?php

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#clear-form-container').click(function () {
+    $('#clear-form-container').click(function() {
         $("#clear-form-container").addClass("hidden");
         document.getElementById("input-id").value = "";
         document.getElementById("input-name").value = "";
@@ -8,19 +8,19 @@ $(document).ready(function () {
         document.getElementById("actor-form").action = "pages/actors/create_actor.php";
     });
 
-    $(document).on('click', '.actor-edit', function () {
+    $(document).on('click', '.actor-edit', function() {
         var id = $(this).attr("val").split('|')[0];
         var name = $(this).attr("val").split('|')[1];
         var lastname = $(this).attr("val").split('|')[2];
         editActor(id, name, lastname);
     });
 
-    $(document).on('click', '.actor-trash', function () {
+    $(document).on('click', '.actor-trash', function() {
         var id = $(this).attr("val");
         deleteActor(id);
     });
 
-    $(document).on('click', '.movie-edit', function () {
+    $(document).on('click', '.movie-edit', function() {
         var id = $(this).attr("val").split('|')[0];
         var language = $(this).attr("val").split('|')[1];
         var title = $(this).attr("val").split('|')[2];
@@ -34,12 +34,12 @@ $(document).ready(function () {
         editMovie(id, language, title, description, year, rental_cost, duration, replacement_cost, clasification, extra_content);
     });
 
-    $(document).on('click', '.movie-trash', function () {
+    $(document).on('click', '.movie-trash', function() {
         var id = $(this).attr("val");
         deleteMovie(id);
     });
 
-    $(document).on('click', '.movie-view', function () {
+    $(document).on('click', '.movie-view', function() {
         var id = $(this).attr("val").split('|')[0];
         var language = $(this).attr("val").split('|')[1];
         var title = $(this).attr("val").split('|')[2];
@@ -53,7 +53,7 @@ $(document).ready(function () {
         viewMovie(id, language, title, description, year, rental_cost, duration, replacement_cost, clasification, extra_content);
     });
 
-    $('#movie-clear-form-container').click(function () {
+    $('#movie-clear-form-container').click(function() {
         $("#movie-clear-form-container").addClass("hidden");
         $("#movie-language").val($("#movie-language option:first").val());
         document.getElementById("input-movie-id").value = "";
@@ -69,8 +69,26 @@ $(document).ready(function () {
         document.getElementById("movie-form").action = "pages/movies/create_movie.php";
     });
 
-    $('.modal-button').click(function () {
+    $(document).on('click', '.modal-button', function() {
         $('.modal-container').fadeOut('fast');
+    });
+
+    $(document).on('click', '#search-actor-button', function() {
+        var value = $('#input-search').val();
+        searchValue(value, 'actor');
+    });
+    
+    $(document).on('click', '#cancel-search-actor-button', function() {
+        cancelSearchValue('actor');
+    });
+
+    $(document).on('click', '#search-movie-button', function() {
+        var value = $('#input-search').val();
+        searchValue(value, 'movie');
+    });
+    
+    $(document).on('click', '#cancel-search-movie-button', function() {
+        cancelSearchValue('movie');
     });
 });
 
@@ -80,18 +98,67 @@ $(window).on("load", function () {
     }, 1000);
 });
 
-function changePage(pageNumber, type) {
+function changePage(pageNumber, type, searchValue) {
     $.ajax({
         url: type == 'actor' ? 'pages/actors/actors_table.php' : 'pages/movies/movies_table.php',
         type: 'GET',
-        data: { pagenumber: pageNumber },
+        data: { 
+            pagenumber: pageNumber,
+            search: searchValue
+        },
         success: function (response) {
             if(type == 'actor') {
                 $('#actors-table').html(response);
-                updatePaginator(pageNumber, 'actor');
+                updatePaginator(pageNumber, 'actor', searchValue);
             } else {
                 $('#movies-table').html(response);
-                updatePaginator(pageNumber, 'movie');
+                updatePaginator(pageNumber, 'movie', searchValue);
+            }
+            document.getElementById("input-search").value = searchValue;
+        },
+        error: function () {
+            alert('Error updating table.');
+        }
+    });
+}
+
+function searchValue(value, type) {
+    if(value != "" && value != null) {
+        $.ajax({
+            url: type == 'actor' ? 'pages/actors/actors_table.php' : 'pages/movies/movies_table.php',
+            type: 'GET',
+            data: { search: value },
+            success: function (response) {
+                if(type == 'actor') {
+                    $('#actors-table').html(response);
+                    updatePaginator(1, 'actor', value);
+                } else {
+                    $('#movies-table').html(response);
+                    updatePaginator(1, 'movie', value);
+                }
+                document.getElementById("input-search").value = value;
+            },
+            error: function () {
+                alert('Error updating table.');
+            }
+        });
+    }
+}
+
+function cancelSearchValue(type) {
+    $.ajax({
+        url: type == 'actor' ? 'pages/actors/actors_table.php' : 'pages/movies/movies_table.php',
+        type: 'GET',
+        data: { 
+            pagenumber: 1
+        },
+        success: function (response) {
+            if(type == 'actor') {
+                $('#actors-table').html(response);
+                updatePaginator(1, 'actor');
+            } else {
+                $('#movies-table').html(response);
+                updatePaginator(1, 'movie');
             }
         },
         error: function () {
@@ -100,11 +167,14 @@ function changePage(pageNumber, type) {
     });
 }
 
-function updatePaginator(currentPage, type) {
+function updatePaginator(currentPage, type, value) {
     $.ajax({
         url: type == 'actor' ? 'pages/actors/actors_paginator.php' : 'pages/movies/movies_paginator.php',
         type: 'GET',
-        data: { pagenumber: currentPage },
+        data: { 
+            pagenumber: currentPage,
+            search: value ? value : ""
+        },
         success: function (response) {
             $('.pagination-container').html(response);
         },
@@ -165,3 +235,4 @@ function viewMovie(id, language, title, description, year, rental_cost, duration
     document.getElementById("movie-form").action = "pages/movies/movie_details.php";
     document.getElementById("movie-form").submit();
 }
+

@@ -7,6 +7,8 @@
             <p class="modal-description">Failed to update <?php echo $_GET['type'] == "actor" ? "an actor" : "a movie" ?>.</h1>
         <?php } elseif($_GET['action'] == "delete") { ?>
             <p class="modal-description">Failed to delete <?php echo $_GET['type'] == "actor" ? "an actor" : "a movie" ?>.</h1>
+        <?php } elseif($_GET['action'] == "view") { ?>
+            <p class="modal-description">Failed to view <?php echo $_GET['type'] == "actor" ? "an actor" : "a movie" ?>.</h1>
         <?php } ?>
         <button class="modal-button"><i class="fas fa-times"></i></button>
     </div>

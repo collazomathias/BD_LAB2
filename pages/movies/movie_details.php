@@ -1,7 +1,20 @@
 <?php
 
+    if (!isset($_POST['movie-id']) || $_POST['movie-id'] == ""
+        || !isset($_POST['movie-language']) || $_POST['movie-rental-cost'] == "" 
+        || !isset($_POST['movie-title']) || $_POST['movie-title'] == "" 
+        || !isset($_POST['movie-description']) || $_POST['movie-description'] == "" 
+        || !isset($_POST['movie-year']) || $_POST['movie-year'] == "" 
+        || !isset($_POST['movie-rental-cost']) || $_POST['movie-rental-cost'] == "" 
+        || !isset($_POST['movie-duration']) || $_POST['movie-duration'] == "" 
+        || !isset($_POST['movie-replacement-cost']) || $_POST['movie-replacement-cost'] == "" 
+        || !isset($_POST['movie-clasification']) || $_POST['movie-clasification'] == "" 
+        || !isset($_POST['movie-extra-content']) || $_POST['movie-extra-content'] == "") {
+            echo '<script>window.location="/?page=movies/movies&modal-failed=1&action=view&type=movie";</script>';
+    }
+
     require $_SERVER['DOCUMENT_ROOT'].'/connection_manager.php';
-    $connection = connect();
+    $conn = connect();
     $query_languages = "SELECT * from idiomas";
     $query_languages_result = mysqli_query(isset($connection) ? $connection : $conn, $query_languages);
     
@@ -18,7 +31,7 @@
 
 ?>
 
-<h1 class="title">MOVIE DETAILS</h1>
+<h1 class="title">MOVIE DETAILS - ID <?php echo $id ?></h1>
 <div class="details-container">
     <div class="details-form-container">
         <form id="update-movie-form" action="pages/movies/update_movie.php" method="POST">
@@ -74,7 +87,9 @@
         </form>
     </div>
     <div class="detail-tables-container">
-        Acá irían las tablas de actores, categorías, sucursales, etc..
+        <?php include_once 'movie_details_table.php'; ?>
     </div>
-    <button id="home-button">Go back</button>
+    <!--<button id="home-button">Go back</button>-->
 </div>
+
+<?php if(isset($conn)) disconnect($conn); ?>

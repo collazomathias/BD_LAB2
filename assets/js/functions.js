@@ -110,6 +110,26 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#movie-cancel-edit-form-container', function() {
+        var id = $(this).attr("val").split('|')[0];
+        var language = $(this).attr("val").split('|')[1];
+        var title = $(this).attr("val").split('|')[2];
+        var description = $(this).attr("val").split('|')[3];
+        var year = $(this).attr("val").split('|')[4];
+        var rental_cost = $(this).attr("val").split('|')[5];
+        var duration = $(this).attr("val").split('|')[6];
+        var replacement_cost = $(this).attr("val").split('|')[7];
+        var clasification = $(this).attr("val").split('|')[8];
+        var extra_content = $(this).attr("val").split('|')[9];
+        document.getElementById('input-movie-id').value = id;
+        document.getElementById('input-movie-title').value = title;
+        document.getElementById('text-area-movie-description').value = description;
+        document.getElementById('input-movie-year').value = year;
+        document.getElementById('input-movie-rental-cost').value = rental_cost;
+        document.getElementById('input-movie-duration').value = duration;
+        document.getElementById('input-movie-replacement-cost').value = replacement_cost;
+        document.getElementById('input-movie-clasification').value = clasification;
+        document.getElementById('input-movie-extra-content').value = extra_content;
+        document.getElementById('movie-language').value = language;
         document.getElementById('movie-edit-button').disabled = true;
         document.getElementById('input-movie-title').disabled = true;
         document.getElementById('text-area-movie-description').disabled = true;
@@ -122,6 +142,20 @@ $(document).ready(function () {
         document.getElementById('movie-language').disabled = true;
         $('#movie-edit-form-container').removeClass('disabled');
         $(this).addClass('hidden');
+    });
+
+    $(document).on('click', '#details-table-actors-container p', function() {
+        if($('#details-table-actors-container').hasClass('closed')) {
+            $('#details-table-actors-container').removeClass('closed');
+            $('#details-table-stores-container').addClass('closed');
+        };
+    });
+
+    $(document).on('click', '#details-table-stores-container p', function() {
+        if($('#details-table-stores-container').hasClass('closed')) {
+            $('#details-table-stores-container').removeClass('closed');
+            $('#details-table-actors-container').addClass('closed');
+        };
     });
 });
 

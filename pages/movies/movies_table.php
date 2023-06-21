@@ -12,8 +12,6 @@
         $limited_select_query = "SELECT * FROM peliculas LIMIT $start,$per_page";
     }
     $query_result = mysqli_query(isset($connection) ? $connection : $conn, $limited_select_query);
-    $query_languages = "SELECT * from idiomas";
-    $query_languages_result = mysqli_query(isset($connection) ? $connection : $conn, $query_languages);
 
     if ($query_result) {
         ob_start(); 

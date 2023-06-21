@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    
+
     $('#clear-form-container').click(function() {
         $("#clear-form-container").addClass("hidden");
         document.getElementById("input-id").value = "";
@@ -90,6 +92,37 @@ $(document).ready(function () {
     $(document).on('click', '#cancel-search-movie-button', function() {
         cancelSearchValue('movie');
     });
+
+    $(document).on('click', '#movie-edit-form-container', function() {
+        if($(this).hasClass('disabled')) return false;
+        document.getElementById('input-movie-title').disabled = false;
+        document.getElementById('text-area-movie-description').disabled = false;
+        document.getElementById('input-movie-year').disabled = false;
+        document.getElementById('input-movie-rental-cost').disabled = false;
+        document.getElementById('input-movie-duration').disabled = false;
+        document.getElementById('input-movie-replacement-cost').disabled = false;
+        document.getElementById('input-movie-clasification').disabled = false;
+        document.getElementById('input-movie-extra-content').disabled = false;
+        document.getElementById('movie-language').disabled = false;
+        document.getElementById('movie-edit-button').disabled = false;
+        $('#movie-cancel-edit-form-container').removeClass('hidden');
+        $(this).addClass('disabled');
+    });
+
+    $(document).on('click', '#movie-cancel-edit-form-container', function() {
+        document.getElementById('movie-edit-button').disabled = true;
+        document.getElementById('input-movie-title').disabled = true;
+        document.getElementById('text-area-movie-description').disabled = true;
+        document.getElementById('input-movie-year').disabled = true;
+        document.getElementById('input-movie-rental-cost').disabled = true;
+        document.getElementById('input-movie-duration').disabled = true;
+        document.getElementById('input-movie-replacement-cost').disabled = true;
+        document.getElementById('input-movie-clasification').disabled = true;
+        document.getElementById('input-movie-extra-content').disabled = true;
+        document.getElementById('movie-language').disabled = true;
+        $('#movie-edit-form-container').removeClass('disabled');
+        $(this).addClass('hidden');
+    });
 });
 
 $(window).on("load", function () {
@@ -98,7 +131,8 @@ $(window).on("load", function () {
     }, 1000);
 });
 
-function changePage(pageNumber, type, searchValue) {
+function changePage(id, pageNumber, type, searchValue) {
+    if($('#'+id).hasClass('active')) return false;
     $.ajax({
         url: type == 'actor' ? 'pages/actors/actors_table.php' : 'pages/movies/movies_table.php',
         type: 'GET',
@@ -232,7 +266,8 @@ function viewMovie(id, language, title, description, year, rental_cost, duration
     document.getElementById("input-movie-replacement-cost").value = replacement_cost;
     document.getElementById("input-movie-clasification").value = clasification;
     document.getElementById("input-movie-extra-content").value = extra_content;
-    document.getElementById("movie-form").action = "pages/movies/movie_details.php";
+    document.getElementById("movie-language").value = language;
+    document.getElementById("movie-form").action = "index.php?page=movies/movie_details";
     document.getElementById("movie-form").submit();
 }
 

@@ -3,11 +3,11 @@
     require $_SERVER['DOCUMENT_ROOT'].'/connection_manager.php';
     $connection = connect();
 
-    if (isset($_POST['movie-title']) && $_POST['movie-title'] != "" 
+    if (isset($_POST['movie-id']) && $_POST['movie-id'] != ""
+        && isset($_POST['movie-language']) && $_POST['movie-rental-cost'] != "" 
+        && isset($_POST['movie-title']) && $_POST['movie-title'] != "" 
         && isset($_POST['movie-description']) && $_POST['movie-description'] != "" 
         && isset($_POST['movie-year']) && $_POST['movie-year'] != "" 
-        && isset($_POST['movie-rental-cost']) && $_POST['movie-rental-cost'] != "" 
-        && isset($_POST['movie-duration']) && $_POST['movie-duration'] != "" 
         && isset($_POST['movie-rental-cost']) && $_POST['movie-rental-cost'] != "" 
         && isset($_POST['movie-duration']) && $_POST['movie-duration'] != "" 
         && isset($_POST['movie-replacement-cost']) && $_POST['movie-replacement-cost'] != "" 

@@ -134,7 +134,7 @@ body {
     height: 100vh;
 }
 
-.page-container .title-container {
+.page-container .title-container, .title {
     width: 100%;
     height: 100px;
     background: var(--css-gradient-background-1);
@@ -144,7 +144,7 @@ body {
     justify-content: center;
 }
 
-.page-container .title-container .page-title {
+.page-container .title-container .page-title, .title {
     color: var(--primary-font-color);
     font-family: var(--font-family);
     font-size: 50px;
@@ -897,3 +897,163 @@ table {
 }
 
 /* LOADER END */
+
+/* MOVIE DETAILS START */
+
+.details-container {
+    padding: 20px;
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.details-form-container {
+    width: 65%;
+}
+
+.detail-tables-container {
+    width: 35%;
+    height: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-form-container .movie-information-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 14px;
+}
+
+.details-form-container .movie-information-container label {
+    font-family: var(--font-family);
+    text-transform: uppercase;
+}
+
+.details-form-container .movie-information-container input, .details-form-container .movie-information-container select {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 16px !important;
+    font-family: var(--font-family);
+    border-radius: 4px;
+    border: 1px solid var(--third-color);
+}
+
+.details-form-container .movie-information-container textarea {
+    width: 100%;
+    height: 75px;
+    resize: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px !important;
+    font-family: var(--font-family);
+    border-radius: 4px;
+    border: 1px solid var(--third-color);
+}
+
+.details-form-container .movie-information-container input:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+.details-form-container .movie-information-container input[type=submit] {
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    background-color:green;
+    color: var(--primary-font-color);
+}
+
+.details-form-container #movie-edit-form-container {
+    width: 50%;
+    max-width: 100px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--third-color);
+    background-color: var(--primary-color);
+    color: var(--primary-font-color);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 16px !important;
+    gap: 10px;
+}
+
+.details-form-container #movie-cancel-edit-form-container {
+    width: 50%;
+    max-width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--third-color);
+    background-color: red;
+    color: var(--primary-font-color);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 16px !important;
+    gap: 10px;
+}
+
+.details-form-container #movie-edit-form-container.disabled {
+    cursor: not-allowed;
+    background-color: var(--third-color);
+    color: var(--primary-font-color);
+}
+
+.details-form-container .movie-information-container input[type=submit]:disabled {
+    cursor: not-allowed;
+    background-color: var(--third-color);
+    color: var(--primary-font-color);
+}
+
+.details-form-container .movie-information-container input[type=submit]:hover:not([disabled]) {
+    filter: brightness(1.2);
+    color: var(--primary-font-color);
+}
+
+.details-form-container #movie-edit-form-container:hover:not(.disabled) {
+    filter: brightness(1.2);
+    color: var(--primary-font-color);
+}
+
+.details-form-container #movie-cancel-edit-form-container:hover {
+    filter: brightness(1.2);
+    color: var(--primary-font-color);
+}
+
+#home-button {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid var(--third-color);
+    color: buttontext;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+}
+
+/* MOVIE DETAILS END */

@@ -22,13 +22,13 @@
 
     <p class="total-count">Movies total count: <span id="total-count"><?php echo $count ?></span></p>
     <?php if($currentPage > 1) { ?> 
-        <a class="pagination-item first-page" href="#" onclick="changePage(1, 'movie', <?php echo $search ?>)"><i class="fas fa-fast-backward"></i></a>
+        <a id="itempage_first" class="pagination-item first-page" href="#" onclick="changePage(this.id, 1, 'movie', <?php echo $search ?>)"><i class="fas fa-fast-backward"></i></a>
     <?php } ?>
     <?php for ($i = $startPage; $i <= $endPage; $i++) { ?> 
-        <a class="pagination-item <?php echo ($i == $currentPage) ? ' active' : '' ?>" href="#" onclick="changePage(<?php echo $i ?>, 'movie', <?php echo $search ?>)"><?php echo $i ?></a>
+        <a id="itempage_<?php echo $i ?>" class="pagination-item <?php echo ($i == $currentPage) ? ' active' : '' ?>" href="#" onclick="changePage(this.id, <?php echo $i ?>, 'movie', <?php echo $search ?>)"><?php echo $i ?></a>
     <?php } ?>
     <?php if($currentPage < $totalPages) { ?> 
-        <a class="pagination-item last-page" href="#" onclick="changePage(<?php echo $totalPages ?>, 'movie', <?php echo $search ?>)"><i class="fas fa-fast-forward"></i></a>
+        <a id="itempage_last" class="pagination-item last-page" href="#" onclick="changePage(this.id, <?php echo $totalPages ?>, 'movie', <?php echo $search ?>)"><i class="fas fa-fast-forward"></i></a>
     <?php } ?>
 
 <?php if(isset($conn)) disconnect($conn); ?>

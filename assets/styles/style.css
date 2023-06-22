@@ -1008,6 +1008,25 @@ table {
     cursor: pointer;
     transition: 0.3s ease-in-out;
     border: 1px solid var(--third-color);
+    background-color: var(--primary-color);
+    color: var(--primary-font-color);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 16px !important;
+    gap: 10px;
+}
+
+.details-form-container #movie-delete-form-container {
+    width: 50%;
+    max-width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--third-color);
     background-color: red;
     color: var(--primary-font-color);
     text-transform: uppercase;
@@ -1040,7 +1059,10 @@ table {
 
 .details-form-container #movie-cancel-edit-form-container:hover {
     filter: brightness(1.2);
-    color: var(--primary-font-color);
+}
+
+.details-form-container #movie-delete-form-container:hover {
+    filter: brightness(1.2);
 }
 
 #home-button {
@@ -1120,6 +1142,7 @@ table {
 
 .detail-tables-container tr {
     width: 100%;
+    height: 50px !important;
 }
 
 .details-table-container td {
@@ -1152,8 +1175,8 @@ table {
 
 
 #details-table-actors-container td:nth-child(4) button {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     cursor: pointer;
     border: none;

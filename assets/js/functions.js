@@ -106,6 +106,7 @@ $(document).ready(function () {
         document.getElementById('movie-language').disabled = false;
         document.getElementById('movie-edit-button').disabled = false;
         $('#movie-cancel-edit-form-container').removeClass('hidden');
+        $('#movie-delete-form-container').removeClass('hidden');
         $(this).addClass('disabled');
     });
 
@@ -142,6 +143,7 @@ $(document).ready(function () {
         document.getElementById('movie-language').disabled = true;
         $('#movie-edit-form-container').removeClass('disabled');
         $(this).addClass('hidden');
+        $('#movie-delete-form-container').addClass('hidden');
     });
 
     $(document).on('click', '#details-table-actors-container p', function() {
@@ -156,6 +158,11 @@ $(document).ready(function () {
             $('#details-table-stores-container').removeClass('closed');
             $('#details-table-actors-container').addClass('closed');
         };
+    });
+
+    $(document).on('click', '#movie-delete-form-container', function() {
+        var id = $(this).attr("val");
+        deleteMovieFromView(id);
     });
 });
 
@@ -287,6 +294,12 @@ function deleteMovie(id) {
     document.getElementById("input-movie-id").value = id;
     document.getElementById("movie-form").action = "pages/movies/delete_movie.php";
     document.getElementById("movie-form").submit();
+}
+
+function deleteMovieFromView(id) {
+    document.getElementById("input-movie-id").value = id;
+    document.getElementById("update-movie-form").action = "pages/movies/delete_movie.php";
+    document.getElementById("update-movie-form").submit();
 }
 
 function viewMovie(id, language, title, description, year, rental_cost, duration, replacement_cost, clasification, extra_content) {   

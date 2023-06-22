@@ -78,9 +78,10 @@
                 <input type="text" id="input-movie-extra-content" name="movie-extra-content" value="<?php echo $_POST['movie-extra-content'] ?>" disabled>
                 <div class="form-buttons-container">
                     <div id="movie-edit-form-container"><i id="edit-form" class="fas fa-pen"></i>Edit</div>
-                    <div id="movie-cancel-edit-form-container" class="hidden" val="<?php echo $id.'|'.$language.'|'.$title.'|'.$description.'|'.$year.'|'.$rental_cost.'|'.$duration.'|'.$replacement_cost.'|'.$clasification.'|'.$extra_content ?>">
+                    <div title="Cancel edit" id="movie-cancel-edit-form-container" class="hidden" val="<?php echo $id.'|'.$language.'|'.$title.'|'.$description.'|'.$year.'|'.$rental_cost.'|'.$duration.'|'.$replacement_cost.'|'.$clasification.'|'.$extra_content ?>">
                         <i id="edit-form" class="fas fa-times"></i>
                     </div>
+                    <div title="Delete movie" id="movie-delete-form-container" class="hidden" val="<?php echo $id ?>"><i id="delete-form" class="fas fa-trash"></i></div>
                     <input id="movie-edit-button" type="submit" value="Update" class="submit-button update-button" disabled>
                 </div>
             </div>
